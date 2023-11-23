@@ -43,6 +43,6 @@ class AutocompleteNgrams:
         suggestions = None
         searched_nodes = None
         suggestions, searched_nodes = self.avl_tree.find_most_likely_ngrams(input_string)
-
-        return suggestions[:k], searched_nodes
+        suggestions = sorted([(s.key, s.values[0]) for s in suggestions], key=lambda x: x[1], reverse=True)
+        return [s[0] for s in suggestions[:k]], searched_nodes
 

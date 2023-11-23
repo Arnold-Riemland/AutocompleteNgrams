@@ -148,7 +148,7 @@ class AVLTree:
             nonlocal ngrams_dict
             searched_nodes += 1
             if cur_node.key.startswith(word):
-                ngrams_dict.append(cur_node.key)
+                ngrams_dict.append(cur_node)
             if cur_node.left_child is not None:
                 _find_most_likely_ngrams(word, cur_node.left_child)
             if cur_node.right_child is not None:
